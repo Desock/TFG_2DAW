@@ -12,7 +12,8 @@
     "start": "strapi start",
     "strapi": "strapi",
     "upgrade": "npx @strapi/upgrade latest",
-    "upgrade:dry": "npx @strapi/upgrade latest --dry"
+    "upgrade:dry": "npx @strapi/upgrade latest --dry",
+    "gen-types": "sts -i src/api/**/content-types/**/schema.json -i src/components/**/schema.json -o ../web-store/types/strapi.d.ts"
   },
   "dependencies": {
     "@strapi/plugin-cloud": "5.38.0",
@@ -28,6 +29,7 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "strapi-to-typescript": "^2.0.15",
     "typescript": "^5"
   },
   "engines": {

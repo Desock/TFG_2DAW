@@ -19,7 +19,8 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@strapi-types/*": ["../backend/types/generated/*"]
     }
   },
   "include": [
