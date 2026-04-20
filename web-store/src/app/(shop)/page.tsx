@@ -1,12 +1,10 @@
-import HeroVideo from "@/components/blocks/heroVideo";
 import { getHomepageData } from "@/services/strapi";
+import HeroVideo from "@/components/blocks/heroVideo";
 
 export default async function HomePage() {
   const data = await getHomepageData();
   
-  
-  const attrs = data?.attributes || data || {};
-
+ 
   const { 
     MainTitle, 
     Subtitle, 
@@ -14,12 +12,7 @@ export default async function HomePage() {
     VideoURL, 
     VideoFile, 
     OverlayOpacity 
-  } = attrs;
-
-  const strapiBaseUrl = 'http://127.0.0.1:1337';
-  const videoFileUrl = VideoFile?.url 
-    ? (VideoFile.url.startsWith('/') ? `${strapiBaseUrl}${VideoFile.url}` : VideoFile.url)
-    : undefined;
+  } = data;
 
   return (
     <main>
@@ -28,9 +21,10 @@ export default async function HomePage() {
         subtitle={Subtitle}
         source={VideoSource}
         url={VideoURL}
-        fileUrl={videoFileUrl}
+        fileUrl={VideoFile?.url} 
         opacity={OverlayOpacity}
       />
+      
     </main>
   );
 }
