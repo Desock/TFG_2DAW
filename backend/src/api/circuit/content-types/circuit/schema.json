@@ -1,0 +1,62 @@
+{
+  "kind": "collectionType",
+  "collectionName": "circuits",
+  "info": {
+    "singularName": "circuit",
+    "pluralName": "circuits",
+    "displayName": "circuit"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "layout_image": {
+      "type": "media",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "lenghMeters": {
+      "type": "decimal",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "track_description": {
+      "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "setups": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::setup.setup",
+      "mappedBy": "circuit"
+    }
+  }
+}
