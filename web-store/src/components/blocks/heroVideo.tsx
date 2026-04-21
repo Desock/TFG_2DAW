@@ -11,9 +11,9 @@ interface HeroVideoProps {
 
 export default function HeroVideo({ 
   title = "SETUPS 4 NEWBIES", 
-  subtitle = "", 
+  subtitle = "Learn how to be fast", 
   source = "URL", 
-  url = "", 
+  url = "https://www.youtube.com/watch?v=P08CyfQXs2Q", 
   fileUrl = "", 
   opacity = 50 
 }: HeroVideoProps) {
