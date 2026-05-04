@@ -1,36 +1,13 @@
-import HeroVideo from "@/components/blocks/heroVideo";
-import { getHomepageData } from "@/services/strapi";
+import { connectStrapi } from "@/lib/strapi";
 
-export default async function HomePage() {
-  const data = await getHomepageData();
-  
-  
-  const attrs = data?.attributes || data || {};
+export default async function Home() {
+    const strapiData = await connectStrapi('/api/homepage');
+    const { MainTitle, SubTitle} = strapiData.data;
 
-  const { 
-    MainTitle, 
-    Subtitle, 
-    VideoSource, 
-    VideoURL, 
-    VideoFile, 
-    OverlayOpacity 
-  } = attrs;
-
-  const strapiBaseUrl = 'http://127.0.0.1:1337';
-  const videoFileUrl = VideoFile?.url 
-    ? (VideoFile.url.startsWith('/') ? `${strapiBaseUrl}${VideoFile.url}` : VideoFile.url)
-    : undefined;
-
-  return (
-    <main>
-      <HeroVideo 
-        title={MainTitle}
-        subtitle={Subtitle}
-        source={VideoSource}
-        url={VideoURL}
-        fileUrl={videoFileUrl}
-        opacity={OverlayOpacity}
-      />
-    </main>
-  );
+    return (
+        <main className="container mx-auto py-6">
+            <h1 className="text-3xl font-bold text-amber-50">{MainTitle}</h1>
+            <p className="text-white">{SubTitle}</p>
+        </main>
+    )
 }
