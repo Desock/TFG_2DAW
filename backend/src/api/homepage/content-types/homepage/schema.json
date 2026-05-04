@@ -11,10 +11,19 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Blocks": {
+    "MainTitle": {
+      "type": "string"
+    },
+    "SubTitle": {
+      "type": "string"
+    },
+    "blocks": {
       "type": "dynamiczone",
       "components": [
-        "blocks.hero-video"
+        "blocks.hero-banner",
+        "homepage.featured-cars",
+        "homepage.featured-circuits",
+        "homepage.auth-cta"
       ]
     }
   }

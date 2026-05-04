@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_homepage_auth_ctas",
+  "info": {
+    "displayName": "auth_cta",
+    "icon": "exit"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "loginLabel": {
+      "type": "string"
+    },
+    "loginURL": {
+      "type": "string"
+    },
+    "registerLabel": {
+      "type": "string"
+    },
+    "registerURL": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

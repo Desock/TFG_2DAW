@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_blocks_hero_banners",
+  "info": {
+    "displayName": "hero_banner",
+    "icon": "landscape"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "ctaLabel": {
+      "type": "string"
+    },
+    "ctaURL": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

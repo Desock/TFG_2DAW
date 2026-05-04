@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_homepage_featured_circuits",
+  "info": {
+    "displayName": "featured_circuits",
+    "icon": "rotate"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "circuits": {
+      "type": "component",
+      "component": "homepage.featured-circuit-item",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

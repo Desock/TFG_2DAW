@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_homepage_featured_cars",
+  "info": {
+    "displayName": "featured_cars",
+    "icon": "car"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "cars": {
+      "type": "component",
+      "component": "homepage.featured-car-item",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}
