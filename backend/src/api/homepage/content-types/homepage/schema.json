@@ -11,6 +11,14 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
     "MainTitle": {
       "type": "string"
     },
@@ -20,10 +28,10 @@
     "blocks": {
       "type": "dynamiczone",
       "components": [
-        "blocks.hero-banner",
         "homepage.featured-cars",
         "homepage.featured-circuits",
-        "homepage.auth-cta"
+        "homepage.auth-cta",
+        "blocks.hero-banner"
       ]
     }
   }

@@ -1,7 +1,7 @@
 {
   "collectionName": "components_blocks_hero_banners",
   "info": {
-    "displayName": "hero_banner",
+    "displayName": "hero-banner",
     "icon": "landscape"
   },
   "options": {},
@@ -12,7 +12,7 @@
     "subtitle": {
       "type": "string"
     },
-    "backgroundImage": {
+    "backgroundImg": {
       "type": "media",
       "multiple": false,
       "allowedTypes": [
@@ -24,7 +24,8 @@
       "type": "string"
     },
     "ctaURL": {
-      "type": "string"
+      "type": "string",
+      "default": "#"
     }
   },
   "config": {}

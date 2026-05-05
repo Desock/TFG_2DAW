@@ -578,10 +578,10 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
   attributes: {
     blocks: Schema.Attribute.DynamicZone<
       [
-        'blocks.hero-banner',
         'homepage.featured-cars',
         'homepage.featured-circuits',
         'homepage.auth-cta',
+        'blocks.hero-banner',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -593,6 +593,7 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
       'api::homepage.homepage'
     > &
       Schema.Attribute.Private;
+    logo: Schema.Attribute.Media<'images' | 'files'>;
     MainTitle: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     SubTitle: Schema.Attribute.String;

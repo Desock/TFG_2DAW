@@ -3,13 +3,13 @@ import type { Schema, Struct } from '@strapi/strapi';
 export interface BlocksHeroBanner extends Struct.ComponentSchema {
   collectionName: 'components_blocks_hero_banners';
   info: {
-    displayName: 'hero_banner';
+    displayName: 'hero-banner';
     icon: 'landscape';
   };
   attributes: {
-    backgroundImage: Schema.Attribute.Media<'images' | 'files'>;
+    backgroundImg: Schema.Attribute.Media<'images' | 'files'>;
     ctaLabel: Schema.Attribute.String;
-    ctaURL: Schema.Attribute.String;
+    ctaURL: Schema.Attribute.String & Schema.Attribute.DefaultTo<'#'>;
     subtitle: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };
