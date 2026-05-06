@@ -1,40 +1,27 @@
-import { connectStrapi } from "@/lib/strapi";
-import { homepageBlocksMap } from "@/components/homepage/blocks-map";
-import Image from "next/image";
+import { getHomePage } from "@/lib/strapi";
+import { HeroBanner } from "@/components/heroBanner";
+import { AuthCTA } from "@/components/auth-cta";
 
 
-interface StrapiBlock {
-  __component: string;
-  [key: string]: unknown;
-}
+
+
 
 export default async function Home() {
-  const homepage = await connectStrapi("/api/homepage?populate[blocks][populate]=*");
+    const homepage = await getHomePage();
 
-    const logo = homepage.data.logo;
-    const mainTitle = homepage.data.MainTitle;
-    const subTitle = homepage.data.SubTitle;
-    const blocks = homepage.data.blocks as StrapiBlock[];
+    const { MainTitle, SubTitle } = homepage;
+    const heroBanner = homepage.blocks.find((b: { __component: string; }) => b.__component === "blocks.hero-banner");
+    const authCta = homepage.blocks.find((b: { __component: string; }) => b.__component === "homepage.auth-cta");
 
-  return (
-    <main className="flex flex-col gap-24 py-16 max-w-7xl mx-auto px-6">
-         <header className="text-center space-y-4 bg-red-400">
-        {logo && (
-          <Image
-            src={logo.url}
-            alt="Logo"
-            className="mx-auto w-32 h-auto"
-          />
-        )}
-        <h1 className="text-4xl font-bold text-black">{mainTitle}</h1>
-        <p className="text-xl text-gray-700">{subTitle}</p>
-      </header>
-      {blocks.map((block, index) => {
-        const Component = homepageBlocksMap[block.__component];
-        if (!Component) return null;
+    return (
+        <main className="container mx-auto py-6">
+            <div className="flex flex-col justify-center items-center bg-linear-to-l from-red-600 from-30% to-red-400 to-60% mb-5">
+                <h1 className="text-6xl font-black bg-linear-to-r from-black via-gray-500 to-white bg-clip-text text-transparent">{MainTitle}</h1>
+                <p className="text-gray-700 font-bold">{SubTitle}</p>
+            </div>
+            <HeroBanner data={{ ...heroBanner }}></HeroBanner>
+            <AuthCTA data={{ ...authCta }}></AuthCTA>
+        </main>
+    )
 
-        return <Component key={index} data={block} />;
-      })}
-    </main>
-  );
 }

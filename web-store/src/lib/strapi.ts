@@ -1,5 +1,57 @@
-const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || 'http://localhost:1337';
-// const STRAPI_TOKEN = process.env.STRAPI_API_TOKEN;
+import qs from 'qs';
+
+export const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || 'http://localhost:1337';
+
+const QUERY_HOMEPAGE = {
+  "populate": {
+    "blocks": {
+      "on": {
+        "blocks.hero-banner": {
+          "populate": {
+            "fields": [
+              "title",
+              "subtitle",
+              "ctaLabel",
+              "ctaURL"
+            ],
+            "backgroundImg": {
+              "fields": [
+                "url",
+                "alternativeText"
+              ]
+            }
+          }
+        },
+        "homepage.auth-cta": {
+          "populate": {
+            "fields": [
+              "title",
+              "description",
+              "loginLabel",
+              "loginURL",
+              "registerLabel",
+              "registerURL"
+            ],
+            "image": {
+              "fields": [
+                "url",
+                "alternativeText"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+export async function getHomePage() {
+    const query = qs.stringify(QUERY_HOMEPAGE);
+    const response = await connectStrapi(`/api/homepage?${query}`);
+    return response?.data;
+}
+
 
 export async function connectStrapi(url: string) {
     try {
