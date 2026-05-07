@@ -12,10 +12,20 @@
     "description": {
       "type": "text"
     },
-    "cars": {
-      "type": "component",
-      "component": "homepage.featured-car-item",
-      "repeatable": true
+    "Label": {
+      "type": "string"
+    },
+    "carImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "urlBundle": {
+      "type": "string",
+      "default": "#"
     }
   },
   "config": {}

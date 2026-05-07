@@ -28,7 +28,7 @@
     "legal": {
       "type": "string"
     },
-    "copyrigh": {
+    "copyright": {
       "type": "string"
     }
   }

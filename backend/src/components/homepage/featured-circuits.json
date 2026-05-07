@@ -12,10 +12,20 @@
     "description": {
       "type": "text"
     },
-    "circuits": {
-      "type": "component",
-      "component": "homepage.featured-circuit-item",
-      "repeatable": true
+    "Label": {
+      "type": "string"
+    },
+    "trackImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "urlBundle": {
+      "type": "string",
+      "default": "#"
     }
   },
   "config": {}

@@ -32,20 +32,6 @@ export interface HomepageAuthCta extends Struct.ComponentSchema {
   };
 }
 
-export interface HomepageFeaturedCarItem extends Struct.ComponentSchema {
-  collectionName: 'components_homepage_featured_car_items';
-  info: {
-    displayName: 'featured_car_item';
-    icon: 'car';
-  };
-  attributes: {
-    description: Schema.Attribute.Text;
-    image: Schema.Attribute.Media<'images' | 'files'>;
-    name: Schema.Attribute.String;
-    url: Schema.Attribute.String;
-  };
-}
-
 export interface HomepageFeaturedCars extends Struct.ComponentSchema {
   collectionName: 'components_homepage_featured_cars';
   info: {
@@ -53,23 +39,11 @@ export interface HomepageFeaturedCars extends Struct.ComponentSchema {
     icon: 'car';
   };
   attributes: {
-    cars: Schema.Attribute.Component<'homepage.featured-car-item', true>;
+    carImage: Schema.Attribute.Media<'images' | 'files'>;
     description: Schema.Attribute.Text;
+    Label: Schema.Attribute.String;
     title: Schema.Attribute.String;
-  };
-}
-
-export interface HomepageFeaturedCircuitItem extends Struct.ComponentSchema {
-  collectionName: 'components_homepage_featured_circuit_items';
-  info: {
-    displayName: 'featured_circuit_item';
-    icon: 'rotate';
-  };
-  attributes: {
-    description: Schema.Attribute.String;
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    name: Schema.Attribute.String;
-    url: Schema.Attribute.String;
+    urlBundle: Schema.Attribute.String & Schema.Attribute.DefaultTo<'#'>;
   };
 }
 
@@ -80,12 +54,11 @@ export interface HomepageFeaturedCircuits extends Struct.ComponentSchema {
     icon: 'rotate';
   };
   attributes: {
-    circuits: Schema.Attribute.Component<
-      'homepage.featured-circuit-item',
-      true
-    >;
     description: Schema.Attribute.Text;
+    Label: Schema.Attribute.String;
     title: Schema.Attribute.String;
+    trackImage: Schema.Attribute.Media<'images' | 'files'>;
+    urlBundle: Schema.Attribute.String & Schema.Attribute.DefaultTo<'#'>;
   };
 }
 
@@ -94,9 +67,7 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'blocks.hero-banner': BlocksHeroBanner;
       'homepage.auth-cta': HomepageAuthCta;
-      'homepage.featured-car-item': HomepageFeaturedCarItem;
       'homepage.featured-cars': HomepageFeaturedCars;
-      'homepage.featured-circuit-item': HomepageFeaturedCircuitItem;
       'homepage.featured-circuits': HomepageFeaturedCircuits;
     }
   }
