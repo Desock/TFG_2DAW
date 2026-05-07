@@ -39,10 +39,52 @@ const QUERY_HOMEPAGE = {
               ]
             }
           }
+        },
+        "homepage.featured-cars": {
+          "populate": {
+            "fields": [
+              "title",
+              "description",
+              "Label",
+              "urlBundle"
+            ],
+            "carImage": {
+              "fields": [
+                "url",
+                "alternativeText"
+              ]
+            }
+          }
+        },
+        "homepage.featured-circuits": {
+          "populate": {
+            "fields": [
+              "title",
+              "description",
+              "Label",
+              "urlBundle"
+            ],
+            "trackImage": {
+              "fields": [
+                "url",
+                "alternativeText"
+              ]
+            }
+          }
         }
       }
     }
   }
+}
+
+export async function getFooter() {
+  const response = await connectStrapi(`/api/footer`);
+  return response?.data;
+}
+
+export async function getHeader() {
+  const response = await connectStrapi(`/api/homepage`);
+  return response?.data;
 }
 
 
@@ -54,6 +96,7 @@ export async function getHomePage() {
 
 
 export async function connectStrapi(url: string) {
+  'use cache'
     try {
         const response = await fetch(`${STRAPI_URL}${url}`);
         if (!response.ok) {
@@ -65,4 +108,46 @@ export async function connectStrapi(url: string) {
         console.error('Error fetching data:', error);
         return null;
     }
+}
+
+export async function registerUserService (userData: object) {
+  const url = `${STRAPI_URL}/api/auth/local/register`
+
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(userData)
+    })
+
+    const data = await response.json()
+    console.log(data)
+    return data
+  } catch (error) {
+    console.error('Error registering user:', error)
+    throw error
+  }
+}
+
+export async function loginUserService (userData: object) {
+  const url = `${STRAPI_URL}/api/auth/local`
+
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(userData)
+    })
+
+    const data = await response.json()
+    console.log(data)
+    return data
+  } catch (error) {
+    console.error('Error login user:', error)
+    throw error
+  }
 }

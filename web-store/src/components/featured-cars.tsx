@@ -3,7 +3,7 @@ import { STRAPI_URL } from "@/lib/strapi";
 
 
 const styles = {
-    header: "relative h-[600px] overflow-hidden",
+    header: "relative h-[600px] overflow-hidden mt-2",
     backgroundImage: "absolute inset-0 object-cover w-full h-full",
     overlay: "relative z-10 flex flex-col items-center justify-center h-full text-center text-white bg-black/30",
     title: "text-4xl font-bold md:text-5xl lg:text-6xl",
@@ -14,19 +14,19 @@ const styles = {
 
 
 
-export function HeroBanner({ data } : { readonly data: { title: string, subtitle: string, ctaLabel: string, 
-    ctaURL: string, backgroundImg: {url: string, alternativeText: string}}}) {
+export function FeaturedCars({ data } : { readonly data: { title: string, description: string, Label: string, 
+    urlBundle: string, carImage: {url: string, alternativeText: string}}}) {
     if (!data) return null;
 
-    const { title, subtitle, ctaLabel, ctaURL } = data;
+    const { title, description, Label, urlBundle } = data;
 
-    const imageURL = data.backgroundImg?.url.startsWith('http') ? data.backgroundImg.url : `${STRAPI_URL}${data.backgroundImg.url}`;
+    const imageURL = data.carImage?.url.startsWith('http') ? data.carImage.url : `${STRAPI_URL}${data.carImage.url}`;
 
     return (
         <header className={styles.header}>
             <img
                 src={imageURL} 
-                alt={data.backgroundImg.alternativeText} 
+                alt={data.carImage.alternativeText} 
                 className={styles.backgroundImage}
                 height={1080}
                 width={1920}
@@ -37,8 +37,8 @@ export function HeroBanner({ data } : { readonly data: { title: string, subtitle
             />
             <div className={styles.overlay}>
                 <h1 className={styles.title}>{title}</h1>
-                <p className={styles.subtitle}>{subtitle}</p>
-                <a className={styles.button} href={ctaURL}>{ctaLabel}</a>
+                <p className={styles.subtitle}>{description}</p>
+                <a className={styles.button} href={urlBundle}>{Label}</a>
             </div>
         </header>
     )

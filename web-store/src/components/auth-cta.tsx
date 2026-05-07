@@ -1,5 +1,6 @@
 import { STRAPI_URL } from "@/lib/strapi";
-import Image from "next/image";
+// import Image from "next/image";
+
 
 const styles = {
     header: "relative h-[600px] overflow-hidden mt-2",
@@ -27,9 +28,9 @@ export function AuthCTA({ data }: {
 
     return (
         <header className={styles.header}>
-                <Image
+                <img
                     src={imageURL}
-                    alt="hola"
+                    alt={data.image.alternativeText}
                     className={styles.backgroundImage}
                     height={1080}
                     width={1920}
