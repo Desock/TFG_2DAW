@@ -593,13 +593,13 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
       'api::homepage.homepage'
     > &
       Schema.Attribute.Private;
-    logo: Schema.Attribute.Media<'images' | 'files'>;
     MainTitle: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     SubTitle: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    video: Schema.Attribute.Media<'files' | 'videos'>;
   };
 }
 

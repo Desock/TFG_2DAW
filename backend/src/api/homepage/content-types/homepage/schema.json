@@ -11,12 +11,12 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "logo": {
+    "video": {
       "type": "media",
       "multiple": false,
       "allowedTypes": [
-        "images",
-        "files"
+        "files",
+        "videos"
       ]
     },
     "MainTitle": {
