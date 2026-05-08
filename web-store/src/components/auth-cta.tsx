@@ -24,8 +24,6 @@ export function AuthCTA({ data }: {
 
     const imageURL = data.image?.url.startsWith('http') ? data.image.url : `${STRAPI_URL}${data.image.url}`;
             
-
-
     return (
         <header className={styles.header}>
                 <img

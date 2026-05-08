@@ -22,7 +22,8 @@ export default async function Home() {
 
     return (
         <main className="container mx-auto py-6">
-            <Header data={{ ...myHeader }}></Header>
+            <div id="sentinel" className="h-7"></div>
+            <div id="video-header"><Header data={{ ...myHeader }}></Header></div>
             <HeroBanner data={{ ...heroBanner }}></HeroBanner>
             <AuthCTA data={{ ...authCta }}></AuthCTA>
             <FeaturedCars data={{ ...featuredCars }}></FeaturedCars>

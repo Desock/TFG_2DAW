@@ -83,7 +83,7 @@ export async function getFooter() {
 }
 
 export async function getHeader() {
-  const response = await connectStrapi(`/api/homepage`);
+  const response = await connectStrapi(`/api/homepage?populate=*`);
   return response?.data;
 }
 
