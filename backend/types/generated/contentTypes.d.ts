@@ -678,6 +678,12 @@ export interface ApiSetupSetup extends Struct.CollectionTypeSchema {
         };
       }>;
     publishedAt: Schema.Attribute.DateTime;
+    setup: Schema.Attribute.Media<'files'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     title: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {

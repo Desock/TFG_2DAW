@@ -65,6 +65,18 @@
           "localized": true
         }
       }
+    },
+    "setup": {
+      "type": "media",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "multiple": false,
+      "allowedTypes": [
+        "files"
+      ]
     }
   }
 }
