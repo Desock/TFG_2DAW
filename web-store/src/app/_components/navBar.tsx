@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 export default function NavBar() {
   // Intersection Observer state (for the hide/show on scroll effect)
@@ -39,7 +40,7 @@ export default function NavBar() {
       <div className="max-w-7xl flex flex-wrap items-center justify-between mx-auto p-4">
         {/* Logo Section */}
         <a href="http://localhost:3000/" className="flex items-center space-x-3 rtl:space-x-reverse">
-          <img src="/imgs/logoS4N.png" className="h-10" alt="S4N Logo" />
+          <Image src="/imgs/logoS4N.png" alt="S4N Logo" width={40} height={30}/>
           <span className="self-center text-xl text-heading font-semibold whitespace-nowrap">
             Setups 4 Newbies
           </span>

@@ -17,7 +17,7 @@ import { Input } from "@/components/ui/input";
 const styles = {
   container: "w-full max-w-md",
   header: "space-y-1",
-  title: "text-3xl font-bold text-pink-500",
+  title: "text-3xl font-bold text-red-500",
   content: "space-y-4",
   fieldGroup: "space-y-2",
   footer: "flex flex-col",
@@ -58,8 +58,8 @@ export function SigninForm() {
             </div>
           </CardContent>
           <CardFooter className={styles.footer}>
-            <button className="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-heading rounded-base group bg-linear-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800">
-              <span className=" relative px-4 py-2.5 transition-all ease-in duration-75 bg-neutral-primary-soft rounded-base group-hover:bg-transparent group-hover:dark:bg-transparent leading-5">
+            <button className="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-heading rounded-2xl group bg-linear-to-br from-red-500 from-5% to-gray-800">
+              <span className=" relative px-4 py-2.5 hover:text-black">
               <a href="singin">Sign In</a>
             </span>
             </button>
@@ -67,9 +67,9 @@ export function SigninForm() {
         </Card>
         <div className={styles.prompt}>
           Don&apos;t have an account?
-          <button className="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-heading rounded-base group bg-linear-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800">
-            <span className=" relative px-4 py-2.5 transition-all ease-in duration-75 bg-neutral-primary-soft rounded-base group-hover:bg-transparent group-hover:dark:bg-transparent leading-5">
-              <a href="singup">Sign Up</a>
+          <button className="relative inline-flex items-center justify-center p-0.5 mx-2 overflow-hidden text-sm font-medium text-heading rounded-2xl group bg-linear-to-br from-red-500 from-5% to-gray-800">
+            <span className="relative px-4 py-2.5 hover:text-black">
+              <a href="signup">Sign Up</a>
             </span>
           </button>
         </div>

@@ -87,6 +87,11 @@ export async function getHeader() {
   return response?.data;
 }
 
+// export async function getSetups() {
+//   const response = await connectStrapi(`/api/setups?populate=*`);
+//   return response?.data;
+// }
+
 
 export async function getHomePage() {
     const query = qs.stringify(QUERY_HOMEPAGE);
