@@ -110,7 +110,7 @@ export default function NavBar() {
           <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-default rounded-base bg-neutral-secondary-soft md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-neutral-primary">
             <li><Link href="/" className="block py-2 px-3 text-white hover:text-black bg-brand rounded md:bg-transparent md:text-fg-brand md:p-0" aria-current="page">Home</Link></li>
             <li><Link href="/cars" className="block py-2 px-3 text-heading rounded hover:text-black hover:bg-neutral-tertiary md:hover:bg-transparent md:hover:text-fg-brand md:p-0">Cars</Link></li>
-            <li><Link href="#" className="block py-2 px-3 text-heading rounded hover:text-black hover:bg-neutral-tertiary md:hover:bg-transparent md:hover:text-fg-brand md:p-0">Circuits</Link></li>
+            <li><Link href="/circuits" className="block py-2 px-3 text-heading rounded hover:text-black hover:bg-neutral-tertiary md:hover:bg-transparent md:hover:text-fg-brand md:p-0">Circuits</Link></li>
             {/* <li><a href="#" className="block py-2 px-3 text-heading rounded hover:text-black hover:bg-neutral-tertiary md:hover:bg-transparent md:hover:text-fg-brand md:p-0">Pricing</a></li>
             <li><a href="#" className="block py-2 px-3 text-heading rounded hover:text-black hover:bg-neutral-tertiary md:hover:bg-transparent md:hover:text-fg-brand md:p-0">Contact</a></li> */}
           </ul>

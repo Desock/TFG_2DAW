@@ -1,7 +1,5 @@
-import { registerUserAction } from "./auth";
+import * as auth from "./auth";
 
 export const actions = {
-  auth: {
-    registerUserAction,
-  }
-}
+  auth,
+};
