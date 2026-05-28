@@ -87,11 +87,6 @@ export async function getHeader() {
   return response?.data;
 }
 
-// export async function getSetups() {
-//   const response = await connectStrapi(`/api/setups?populate=*`);
-//   return response?.data;
-// }
-
 
 export async function getHomePage() {
     const query = qs.stringify(QUERY_HOMEPAGE);
@@ -101,7 +96,6 @@ export async function getHomePage() {
 
 
 export async function connectStrapi(url: string) {
-  'use cache'
     try {
         const response = await fetch(`${STRAPI_URL}${url}`);
         if (!response.ok) {

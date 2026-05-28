@@ -30,8 +30,6 @@ export function AuthCTA({ data }: {
                     src={imageURL}
                     alt={data.image.alternativeText}
                     className={styles.backgroundImage}
-                    height={1080}
-                    width={1920}
                     style={{
                         aspectRatio: "1920/1080",
                         objectFit: "cover",

@@ -1,17 +1,23 @@
 'use client';
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function NavBar() {
-  // Intersection Observer state (for the hide/show on scroll effect)
-  const [visible, setVisible] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
 
-  // Toggle states for the interactive menus
+  const [visible, setVisible] = useState(!isHome); 
+  // Si NO es home → visible desde el inicio
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isUserDropdownOpen, setIsUserDropdownOpen] = useState(false);
 
   useEffect(() => {
+    if (!isHome) return; // SOLO ejecutar el observer en la home
+
     const header = document.getElementById("video-header");
     if (!header) return;
 
@@ -27,7 +33,7 @@ export default function NavBar() {
 
     observer.observe(header);
     return () => observer.disconnect();
-  }, []);
+  }, [isHome]);
 
   return (
     <nav
@@ -102,11 +108,11 @@ export default function NavBar() {
           id="navbar-user"
         >
           <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-default rounded-base bg-neutral-secondary-soft md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-neutral-primary">
-            <li><a href="#" className="block py-2 px-3 text-white hover:text-black bg-brand rounded md:bg-transparent md:text-fg-brand md:p-0" aria-current="page">Home</a></li>
-            <li><a href="#" className="block py-2 px-3 text-heading rounded hover:text-black hover:bg-neutral-tertiary md:hover:bg-transparent md:hover:text-fg-brand md:p-0">Tutorials</a></li>
-            <li><a href="#" className="block py-2 px-3 text-heading rounded hover:text-black hover:bg-neutral-tertiary md:hover:bg-transparent md:hover:text-fg-brand md:p-0">Setups</a></li>
-            <li><a href="#" className="block py-2 px-3 text-heading rounded hover:text-black hover:bg-neutral-tertiary md:hover:bg-transparent md:hover:text-fg-brand md:p-0">Pricing</a></li>
-            <li><a href="#" className="block py-2 px-3 text-heading rounded hover:text-black hover:bg-neutral-tertiary md:hover:bg-transparent md:hover:text-fg-brand md:p-0">Contact</a></li>
+            <li><Link href="/" className="block py-2 px-3 text-white hover:text-black bg-brand rounded md:bg-transparent md:text-fg-brand md:p-0" aria-current="page">Home</Link></li>
+            <li><Link href="/cars" className="block py-2 px-3 text-heading rounded hover:text-black hover:bg-neutral-tertiary md:hover:bg-transparent md:hover:text-fg-brand md:p-0">Cars</Link></li>
+            <li><Link href="#" className="block py-2 px-3 text-heading rounded hover:text-black hover:bg-neutral-tertiary md:hover:bg-transparent md:hover:text-fg-brand md:p-0">Circuits</Link></li>
+            {/* <li><a href="#" className="block py-2 px-3 text-heading rounded hover:text-black hover:bg-neutral-tertiary md:hover:bg-transparent md:hover:text-fg-brand md:p-0">Pricing</a></li>
+            <li><a href="#" className="block py-2 px-3 text-heading rounded hover:text-black hover:bg-neutral-tertiary md:hover:bg-transparent md:hover:text-fg-brand md:p-0">Contact</a></li> */}
           </ul>
         </div>
       </div>

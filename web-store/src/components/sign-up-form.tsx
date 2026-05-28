@@ -92,7 +92,7 @@ export function SignupForm() {
           <CardFooter className={styles.footer}>
             <button type="submit" className="relative inline-flex items-center justify-center p-0.5 mx-1 overflow-hidden text-sm font-medium text-heading rounded-2xl group bg-linear-to-br from-red-500 from-5% to-gray-800">
               <span className="relative px-4 py-2.5 hover:text-black cursor-pointer">
-                Sign In
+                Sign Up
               </span>
             </button>
             {formState.strapiErrors &&
