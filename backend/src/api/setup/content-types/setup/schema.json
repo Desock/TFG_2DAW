@@ -52,12 +52,6 @@
       },
       "default": false
     },
-    "users_permissions_user": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "plugin::users-permissions.user",
-      "inversedBy": "setups"
-    },
     "published": {
       "type": "date",
       "pluginOptions": {

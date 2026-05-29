@@ -33,6 +33,14 @@
     },
     "paymentID": {
       "type": "string"
+    },
+    "stripeSessionID": {
+      "type": "string"
+    },
+    "item": {
+      "type": "component",
+      "component": "item.order",
+      "repeatable": true
     }
   }
 }

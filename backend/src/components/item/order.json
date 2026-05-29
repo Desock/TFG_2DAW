@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_item_orders",
+  "info": {
+    "displayName": "order",
+    "icon": "shoppingCart"
+  },
+  "options": {},
+  "attributes": {
+    "setupSnapshot": {
+      "type": "json"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "quantity": {
+      "type": "integer",
+      "default": 1
+    }
+  },
+  "config": {}
+}

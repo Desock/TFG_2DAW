@@ -62,6 +62,19 @@ export interface HomepageFeaturedCircuits extends Struct.ComponentSchema {
   };
 }
 
+export interface ItemOrder extends Struct.ComponentSchema {
+  collectionName: 'components_item_orders';
+  info: {
+    displayName: 'order';
+    icon: 'shoppingCart';
+  };
+  attributes: {
+    price: Schema.Attribute.Decimal;
+    quantity: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<1>;
+    setupSnapshot: Schema.Attribute.JSON;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -69,6 +82,7 @@ declare module '@strapi/strapi' {
       'homepage.auth-cta': HomepageAuthCta;
       'homepage.featured-cars': HomepageFeaturedCars;
       'homepage.featured-circuits': HomepageFeaturedCircuits;
+      'item.order': ItemOrder;
     }
   }
 }

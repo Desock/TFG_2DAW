@@ -617,6 +617,7 @@ export interface ApiOrderOrder extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    item: Schema.Attribute.Component<'item.order', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::order.order'> &
       Schema.Attribute.Private;
@@ -628,6 +629,7 @@ export interface ApiOrderOrder extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     setupSnapshot: Schema.Attribute.JSON;
     statusOrder: Schema.Attribute.Enumeration<['pending', 'paid', 'failed']>;
+    stripeSessionID: Schema.Attribute.String;
     totalPrice: Schema.Attribute.Decimal;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -693,10 +695,6 @@ export interface ApiSetupSetup extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    users_permissions_user: Schema.Attribute.Relation<
-      'manyToOne',
-      'plugin::users-permissions.user'
-    >;
   };
 }
 
@@ -1187,7 +1185,6 @@ export interface PluginUsersPermissionsUser
       'manyToOne',
       'plugin::users-permissions.role'
     >;
-    setups: Schema.Attribute.Relation<'oneToMany', 'api::setup.setup'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

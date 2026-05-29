@@ -66,12 +66,6 @@
       "inversedBy": "users",
       "configurable": false
     },
-    "setups": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::setup.setup",
-      "mappedBy": "users_permissions_user"
-    },
     "user": {
       "type": "relation",
       "relation": "oneToMany",
